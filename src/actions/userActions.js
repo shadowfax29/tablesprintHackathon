@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../components/util";
 import Cookies from "js-cookie";
 
 export const startRegister = (formData, resetForm, navigate) => {
