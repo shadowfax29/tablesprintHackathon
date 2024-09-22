@@ -90,17 +90,19 @@ const Register = () => {
           already have an account?<Link to="/login" className="text-indigo-600 hover:underline">login</Link>
         </div>
 
-        {serverErrors.length > 0 && (
-          <ul className="mt-4 text-red-600">
-            {serverErrors?.errors?.length ? (
-              serverErrors.errors.map((ele, i) => (
-                <li key={i}>{ele.msg}</li>
-              ))
-            ) : serverErrors?.error ? (
-              <li>{serverErrors.error}</li>
-            ) : null}
-          </ul>
-        )}
+        {serverErrors && serverErrors.errors && serverErrors.errors.length > 0 && (
+  <ul className="mt-4 text-red-600">
+    {serverErrors.errors.map((ele, i) => (
+      <li key={i}>{ele.msg}</li>
+    ))}
+  </ul>
+)}
+{serverErrors && serverErrors.error && (
+  <ul className="mt-4 text-red-600">
+    <li>{serverErrors.error}</li>
+  </ul>
+)}
+
       </div>
     </div>
   );
